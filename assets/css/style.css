@@ -6,6 +6,9 @@
 
 body {
   background: #0a0001 url("../img/bg/background.jpg") 52% 50% / cover;
+}
+
+.app {
   padding: 2em;
   --gutter: 2em;
   --sail: max(var(--gutter), env(safe-area-inset-left));
@@ -13,7 +16,7 @@ body {
 }
 
 @supports (padding: max(0px)) and (padding: env(safe-area-inset-left)) {
-  body {
+  .app {
     padding: env(safe-area-inset-top) var(--sair) env(safe-area-inset-bottom)
       var(--sail);
   }
@@ -106,6 +109,7 @@ body,
 .app {
   height: 100%;
   margin: 0;
+  min-height: calc(100% + env(safe-area-inset-top));
 }
 
 .app {
