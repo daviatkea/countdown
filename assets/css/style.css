@@ -5,7 +5,7 @@
 }
 
 body {
-  background: #ffd54f url("../img/bg/background.jpg") 52% 50% / cover;
+  background: #0a0001 url("../img/bg/background.jpg") 52% 50% / cover;
   padding: 2em;
   --gutter: 2em;
   --sail: max(var(--gutter), env(safe-area-inset-left));
@@ -14,7 +14,8 @@ body {
 
 @supports (padding: max(0px)) and (padding: env(safe-area-inset-left)) {
   body {
-    padding: 0 var(--sair) min(0px) var(--sail) !important;
+    padding: 0 var(--sair) max(var(--gutter), env(safe-area-inset-bottom))
+      var(--sail) !important;
   }
 }
 
