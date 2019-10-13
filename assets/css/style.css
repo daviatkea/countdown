@@ -9,7 +9,6 @@ body {
 }
 
 .app {
-  padding: 2em;
   --gutter: 2em;
   --sail: max(var(--gutter), env(safe-area-inset-left));
   --sair: max(var(--gutter), env(safe-area-inset-right));
@@ -107,9 +106,9 @@ button:after {
 html,
 body,
 .app {
-  height: 100%;
+  height: 100vh;
   margin: 0;
-  min-height: calc(100% + env(safe-area-inset-top));
+  /* height: calc(100% + env(safe-area-inset-top)); */
 }
 
 .app {
