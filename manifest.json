@@ -1,0 +1,9 @@
+{
+  "name": "Countdown",
+  "short_name": "Countdown",
+  "theme_color": "##ffd54f",
+  "background_color": "#ffd54f",
+  "display": "standalone",
+  "start_url": ".",
+  "splash_pages": null
+}
