@@ -14,7 +14,7 @@ body {
 
 @supports (padding: max(0px)) and (padding: env(safe-area-inset-left)) {
   body {
-    padding: 0 var(--sair) max(var(--gutter), env(safe-area-inset-bottom))
+    padding: 0 var(--sair) min(var(--gutter), env(safe-area-inset-bottom))
       var(--sail) !important;
   }
 }
