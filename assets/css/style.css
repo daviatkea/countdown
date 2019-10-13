@@ -14,7 +14,7 @@ body {
 
 @supports (padding: max(0px)) and (padding: env(safe-area-inset-left)) {
   body {
-    padding: 0 var(--sair) 0 var(--sail) !important;
+    padding: 0 var(--sair) min(0px) var(--sail) !important;
   }
 }
 
