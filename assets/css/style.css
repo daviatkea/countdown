@@ -1,107 +1,123 @@
-*,
-*:before,
-*:after {
-  padding: 0;
-  margin: 0;
+* {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-section {
-  width: 100%;
-  display: grid;
-  gap: 2rem;
+body {
+  background: #0a0001 url("../img/bg/background.jpg") 52% 50% / cover;
 }
 
-img {
-  height: 20vh;
-  width: 100%;
-  object-fit: contain;
+.app {
+  --gutter: 2em;
+  --sail: max(var(--gutter), env(safe-area-inset-left));
+  --sair: max(var(--gutter), env(safe-area-inset-right));
+}
+
+@supports (padding: max(0px)) and (padding: env(safe-area-inset-left)) {
+  .app {
+    padding: env(safe-area-inset-top) var(--sair) env(safe-area-inset-bottom)
+      var(--sail);
+  }
+}
+
+.container {
+  color: #333;
+  text-align: center;
+  padding: 2rem 0;
 }
 
 h1 {
   font-weight: normal;
   font-weight: 700;
   line-height: 1.125;
-  font-size: 10vmin;
-  text-align: center;
-  font-family: "Caveat", cursive;
-  margin-bottom: 0;
 }
 
 ul {
-  display: flex;
-  text-align: center;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  display: grid;
 }
 
 li {
-  font-size: 3.75vmin;
+  --i: var(--isDays, 0);
+  grid-area: 1 / 1;
+  display: inline-block;
+  font-size: 1.5em;
   list-style-type: none;
-  padding: 2vmin;
+  padding: 1em;
   text-transform: uppercase;
+  transition: 0.25s;
+  opacity: calc(var(--i) * 1);
   user-select: none;
+  width: fit-content;
   margin: 0 auto;
   line-height: 1.1;
-  font-family: "Caveat", cursive;
+  will-change: opacity;
+}
+
+li:nth-of-type(2) {
+  opacity: calc((1 - var(--i)) * 1);
 }
 
 li span {
   display: block;
-  font-size: 8vmin;
-  font-weight: 700;
-  margin-bottom: 0.25em;
+  font-size: 4.5rem;
+  transition: 0.25s;
+  font-weight: 900;
+  will-change: transform;
+  transform-origin: 50% 20%;
+  transform: scaleY(calc(var(--i) * 1));
 }
 
-progress[value] {
-  /* Reset the default appearance */
+li:nth-of-type(2) span {
+  transform-origin: 50% 80%;
+  transform: scaleY(calc((1 - var(--i)) * 1));
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "pnum";
+  box-sizing: border-box;
+  margin: 0;
+  touch-action: manipulation;
   -webkit-appearance: none;
-  -moz-appearance: none;
-  border: none;
-  width: 100%;
-  height: 2rem;
-  border-radius: 1rem;
-  overflow: hidden;
+  font: inherit;
+  line-height: inherit;
+  padding: 0.75em 1em;
   position: relative;
-  display: flex;
-  align-items: center;
-}
-
-progress[value]:after {
-  content: attr(value) "%";
+  width: 10rem;
+  margin-top: 2rem;
+  outline: none;
+  border: 2px solid #f35401;
+  color: #f35401;
+  border-radius: 5px;
   font-weight: 700;
-  padding: 0 0.5rem;
-  font-size: 1.2em;
-  position: absolute;
-  left: calc(var(--value) * 1%);
-  transform: translateX(-100%);
-  color: hsl(calc((var(--value) / 100) * 90), 50%, 50%);
-  mix-blend-mode: difference;
-  font-family: "Caveat", cursive;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  background: #fff8dc88;
+  box-shadow: 0 0 15px 5px #fff8dccc;
 }
 
-progress[value]::-webkit-progress-bar {
-  background: hsl(220, 10%, 80%);
-}
-
-progress[value]::-moz-progress-bar {
-  background: hsl(220, 10%, 80%);
-}
-
-progress[value]::-webkit-progress-value {
-  background: hsl(calc((var(--value) / 100) * 90), 50%, 50%);
-  filter: contrast(2);
+button:after {
+  content: " " attr(data-toggle);
 }
 
 html,
-body {
-  height: 100%;
+body,
+.app {
+  height: 100vh;
+  margin: 0;
+  /* height: calc(100% + env(safe-area-inset-top)); */
 }
 
-body {
-  display: grid;
-  place-items: center;
-  /*background: url('https://images-na.ssl-images-amazon.com/images/I/71VWxgHLZfL._SY500_.jpg') 50% / cover;*/
-  padding: 20px;
+.app {
+  align-items: center;
+  display: flex;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+.container {
+  margin: 0 auto;
 }
