@@ -19,16 +19,20 @@
   </head>
   <body>
     <div class="app">
-      <div class="container">
-        <h1 id="head">Hang in there. Freedom is just around the corner...</h1>
-        <div id="countdown">
+      <section>
+        <h1>Almost there... 😆</h1>
+
+        <article class="countdown">
           <ul>
             <li><span id="days"></span>days</li>
-            <li><span id="weeks"></span>Weeks</li>
+            <li><span id="hours"></span>Hours</li>
+            <li><span id="minutes"></span>Minutes</li>
+            <li><span id="seconds"></span>Seconds</li>
           </ul>
-          <button data-toggle>Show</button>
-        </div>
-      </div>
+        </article>
+
+        <progress max="100" value="0"></progress>
+      </section>
     </div>
 
     <script src="./assets/js/index.js"></script>

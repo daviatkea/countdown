@@ -1,45 +1,42 @@
 window.addEventListener("load", () => {
-  const btn = document.querySelector("button");
-  let isDays = false;
+  const pBar = document.querySelector("progress");
 
-  if ("serviceWorker" in navigator) {
-    try {
-      navigator.serviceWorker.register("serviceWorker.js");
-      console.log("Service Worker Registered");
-    } catch (error) {
-      console.log("Service Worker Registration Failed");
-    }
-  }
+  const start = new Date(2017, 5, 1),
+    end = new Date(2021, 6, 1),
+    today = new Date();
 
   const second = 1000,
     minute = second * 60,
     hour = minute * 60,
     day = hour * 24;
 
-  let countDown = new Date("June 20, 2020 00:00:00").getTime(),
+  let countDown = end.getTime(),
     x = setInterval(function() {
+      const q = Math.abs(today - start);
+      const d = Math.abs(end - start);
+
+      pBar.value = Math.round((q / d) * 100);
+      pBar.textContent = `${Math.round((q / d) * 100)}%`;
+      pBar.style.setProperty("--value", Math.round((q / d) * 100));
+
       let now = new Date().getTime(),
         distance = countDown - now;
 
       (document.getElementById("days").innerText = Math.floor(distance / day)),
-        (document.getElementById("weeks").innerText = Math.floor(
-          distance / day / 7
+        (document.getElementById("hours").innerText = Math.floor(
+          (distance % day) / hour
+        )),
+        (document.getElementById("minutes").innerText = Math.floor(
+          (distance % hour) / minute
+        )),
+        (document.getElementById("seconds").innerText = Math.floor(
+          (distance % minute) / second
         ));
 
       if (distance < 0) {
         clearInterval(x);
-        document.querySelector("#countdown").style.display = "none";
-        document.querySelector("#head").textContent = "Freedom!";
+        document.querySelector(".countdown ul").style.display = "none";
+        document.querySelector("h1").textContent = "Freedom!";
       }
     }, second);
-
-  btn.dataset.toggle = "days";
-
-  function toggle() {
-    isDays = !isDays;
-    document.querySelector("ul").style.setProperty("--isDays", isDays ? 1 : 0);
-    btn.dataset.toggle = isDays ? "weeks" : "days";
-  }
-
-  btn.addEventListener("click", toggle);
 });
