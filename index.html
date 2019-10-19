@@ -13,24 +13,56 @@
       name="apple-mobile-web-app-status-bar-style"
       content="black-translucent"
     />
-    <link rel="stylesheet" href="./assets/css/style.css?v=0.1.9" />
+    <link
+      rel="preload"
+      href="./assets/font/SupersonicRocketship.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <style>
+      @font-face {
+        font-family: "SupersonicRocketship";
+        font-display: swap;
+        src: url("./assets/font/SupersonicRocketship.woff2") format("woff2");
+        font-weight: normal;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:400i&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css?v=0.2.3" />
     <link rel="manifest" href="./manifest.json" />
     <title>Countdown</title>
   </head>
+
   <body>
     <div class="app">
-      <div class="container">
-        <h1 id="head">Hang in there. Freedom is just around the corner...</h1>
-        <div id="countdown">
+      <section>
+        <h1>OFU</h1>
+        <h2>In progress...</h2>
+
+        <div class="progresswrapper">
+          <progress max="100" value="0"></progress>
+          <p class="value"></p>
+        </div>
+        <h2>Loading... &nbsp;&nbsp;&nbsp;please wait</h2>
+
+        <article class="countdown">
           <ul>
             <li><span id="days"></span>days</li>
-            <li><span id="weeks"></span>Weeks</li>
+            <li><span id="hours"></span>Hours</li>
+            <li><span id="minutes"></span>Minutes</li>
+            <li><span id="seconds"></span>Seconds</li>
           </ul>
-          <button data-toggle>Show</button>
-        </div>
-      </div>
+        </article>
+      </section>
     </div>
 
-    <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/index.js?v=0.1.0"></script>
   </body>
 </html>
