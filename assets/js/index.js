@@ -14,15 +14,15 @@ window.addEventListener("load", () => {
 
   let countDown = end.getTime(),
     x = setInterval(function() {
-      const q = Math.abs(today - start);
+      let now = new Date().getTime(),
+        distance = countDown - now;
+
+      const q = Math.abs(now - start);
       const d = Math.abs(end - start);
 
       pBar.value = Math.round((q / d) * 100);
-      pBarP.innerText = `${Math.round((q / d) * 100)}%`;
+      pBarP.innerText = `${((q / d) * 100).toFixed(2)}%`;
       pWrap.style.setProperty("--value", Math.round((q / d) * 100));
-
-      let now = new Date().getTime(),
-        distance = countDown - now;
 
       (document.getElementById("days").innerText = Math.floor(distance / day)),
         (document.getElementById("hours").innerText = Math.floor(
