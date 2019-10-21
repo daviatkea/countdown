@@ -122,13 +122,22 @@ progress[value]::-moz-progress-bar {
 progress[value]::-webkit-progress-value {
   /* background: hsl(calc((var(--value) / 100) * 90), 50%, 50%);
   filter: contrast(2); */
-  background: repeating-linear-gradient(
+  /* background: repeating-linear-gradient(
     -65deg,
     var(--bg),
     var(--bg) 4px,
     #2ab673 4px,
     #2ab673 20px
+  ); */
+  background: repeating-linear-gradient(
+    to right,
+    var(--bg),
+    var(--bg) 4px,
+    #2ab673 4px,
+    #2ab673 20px
   );
+  transform: skewX(-25deg);
+  transform-origin: 0 0;
 }
 
 .progresswrapper {
