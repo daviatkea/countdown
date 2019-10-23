@@ -8,6 +8,7 @@
 
 :root {
   --bg: #fff;
+  --c: #6d6d6d;
 }
 
 body {
@@ -164,7 +165,7 @@ progress[value]::-webkit-progress-value {
   transform: translateY(-50%);
   /* color: hsl(calc((var(--value) / 100) * 90), 50%, 50%);
   mix-blend-mode: difference; */
-  color: #6d6d6d;
+  color: var(--c);
 }
 
 .countdown {
@@ -188,11 +189,8 @@ body {
 @media (prefers-color-scheme: dark) {
   body {
     --bg: #000;
+    --c: #fff;
     /* background: #000; */
-    color: #fff;
-  }
-
-  .value  {
     color: #fff;
   }
 }
