@@ -169,6 +169,7 @@ progress[value]::-webkit-progress-value {
   /* color: hsl(calc((var(--value) / 100) * 90), 50%, 50%);
   mix-blend-mode: difference; */
   color: var(--c);
+  background: #000;
 }
 
 .countdown {
